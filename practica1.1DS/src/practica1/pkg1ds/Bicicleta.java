@@ -10,15 +10,18 @@ package practica1.pkg1ds;
  */
 public abstract class Bicicleta{
     
-    private int id;
+    int id;
     static private int idBici = 0;
     
     Bicicleta(){
-        id = idBici+1;
+        id = idBici;
+        idBici++;
     }
     
     int getId(){
         return id;
     }
+    
+    abstract void abandonar();
     
 }

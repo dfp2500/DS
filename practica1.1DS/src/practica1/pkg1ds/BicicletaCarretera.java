@@ -9,5 +9,8 @@ package practica1.pkg1ds;
  * @author ricardo
  */
 public class BicicletaCarretera extends Bicicleta{
-        
+    @Override
+    void abandonar(){
+        System.out.println(id + " abandona la carrera de carretera. \n");
+    }
 }

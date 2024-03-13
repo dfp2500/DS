@@ -16,9 +16,8 @@ import java.util.logging.Logger;
 public abstract class Carrera{
     protected ArrayList<Bicicleta> bicis;
     protected Random r;
-    int bicisSalida;
     int bicisLlegada;
-    int porcentajeSalida;
+    double porcentajeSalida;
     String tipo;
     ArrayList<Bicicleta> ranking;
     
@@ -38,18 +37,17 @@ public abstract class Carrera{
         return bicis;
     }
     
-    void comenzarCarrera(){
-        bicisSalida = r.nextInt(bicis.size())+1; 
-        System.out.println("Comienza la carrera de "+ tipo + " con " + bicisSalida + " competidores: \n");
-        for (int i = 0; i<bicisSalida; i++){
+    void comenzarCarrera(){ 
+        System.out.println("Comienza la carrera de "+ tipo + " con " + bicis.size() + " competidores: \n");
+        for (int i = 0; i<bicis.size(); i++){
             System.out.println(bicis.get(i).getId()+"\n");
         }
     }
     
     ArrayList<Bicicleta> finalCarrera(){
         Collections.shuffle(bicis, r);
-        
-        bicisLlegada -= bicisSalida*porcentajeSalida;
+         
+        bicisLlegada = (int) (bicis.size() - Math.round(bicis.size()*porcentajeSalida));
         
         for(int i = 0; i<bicisLlegada; i++){
             ranking.add(bicis.get(i));
@@ -58,7 +56,7 @@ public abstract class Carrera{
         return ranking;
     }
     
-    void Carrera(){
+    void salir(){
         comenzarCarrera();
         try {
             Thread.sleep(45*1000);
@@ -67,8 +65,8 @@ public abstract class Carrera{
         }
         finalCarrera();
         System.out.println("Salen un " + porcentajeSalida + "% de las bicis de la carrera de " + tipo + ": \n");
-        for(int i = bicisLlegada; i < bicisSalida; i++)
-            System.out.println(bicis.get(i).getId() + "\n");
+        for(int i = bicisLlegada; i < bicis.size(); i++)
+            bicis.get(i).abandonar();
         
         try {
             Thread.sleep(15*1000);

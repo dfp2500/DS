@@ -12,7 +12,7 @@ public class CarreraMontaña extends Carrera{
     
     CarreraMontaña(){
         super();
-        porcentajeSalida=20;
+        porcentajeSalida=0.2;
         tipo = "Montaña";
     }
 }
