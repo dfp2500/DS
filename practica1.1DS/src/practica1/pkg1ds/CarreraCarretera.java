@@ -10,8 +10,9 @@ package practica1.pkg1ds;
  */
 public class CarreraCarretera extends Carrera{
     
-    public String corriendo(){
-        return "Corriendo en la carrera de carretera";
+    CarreraCarretera(){
+        super();
+        porcentajeSalida=10;
+        tipo = "Carretera";
     }
-    
 }

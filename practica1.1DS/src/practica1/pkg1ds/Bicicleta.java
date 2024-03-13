@@ -12,13 +12,13 @@ public abstract class Bicicleta{
     
     private int id;
     static private int idBici = 0;
-    Carrera carrera;
     
     Bicicleta(){
         id = idBici+1;
-        carrera.getBicis().add(this);
-        
     }
-
+    
+    int getId(){
+        return id;
+    }
     
 }

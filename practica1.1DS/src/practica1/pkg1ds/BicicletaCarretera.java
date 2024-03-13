@@ -9,7 +9,5 @@ package practica1.pkg1ds;
  * @author ricardo
  */
 public class BicicletaCarretera extends Bicicleta{
-    
-    
-    
+        
 }
